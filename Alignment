@@ -33,4 +33,11 @@ hisat2 -p 4 -x $reference -1  ${sample}_1_val_1.fq.gz -2 ${sample}_2_val_2.fq.gz
 done
 """
 
-
+# Transforming .bam files to .bam files
+#shell script
+"""
+ls *.sam|while read id ;
+do 
+samtools sort -O bam -@ 5  -o $(basename ${id} ".sam").bam   ${id};
+done
+"""
