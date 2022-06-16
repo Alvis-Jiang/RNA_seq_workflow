@@ -1,0 +1,6 @@
+# Download corrosponding gtf files
+featureCounts -T 4 -p -t exon -g gene_id -a $gtf -o all.id.txt *.bam 
+# -p: paired-end sequencing
+
+# Using multiqc to review the result of counting
+multiqc all.id.txt.summary 
