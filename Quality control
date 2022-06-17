@@ -9,8 +9,7 @@
 /home/jby/rnaseq/fq/SRR957668_2.fastq.gz
 /home/jby/rnaseq/fq/SRR958469_2.fastq.gz
 /home/jby/rnaseq/fq/SRR958472_2.fastq.gz
-/home/jby/rnaseq/fq/SRR958473_2.fastq.gz
-/home/jby/rnaseq/fq/SRR958525_2.fastq.gz
+
 # Check fq files with fastqc 
 # single file
 fastqc /home/jby/rnaseq/fq/SRR957667_1.fastq.gz
@@ -38,5 +37,19 @@ done
 """
 
 bash clean.sh
+
+# obtain files
+# /home/jby/rnaseq/clean
+SRR957667_1_val_1.fq.gz
+SRR957667_2_val_2.fq.gz
+SRR957668_1_val_1.fq.gz
+SRR957668_2_val_2.fq.gz
+SRR958469_1_val_1.fq.gz
+SRR958469_2_val_2.fq.gz
+SRR958472_1_val_1.fq.gz
+SRR958472_2_val_2.fq.gz
+# Using multiqc to check 
+multiqc ./
+
 
 
