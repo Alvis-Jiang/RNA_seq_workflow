@@ -1,5 +1,6 @@
-# Download corrosponding gtf files
-featureCounts -T 4 -p -t exon -g gene_id -a $gtf -o all.id.txt *.bam 
+# Download corrosponding gtf files--http://asia.ensembl.org/info/data/ftp/index.html/
+
+featureCounts -T 4 -p -t exon -g gene_id -a /home/jby/rnaseq/reference/hg38_gtf/Homo_sapiens.GRCh38.87.chr.gtf -o all_id_.txt *.bam 
 # -p: paired-end sequencing
 
 # Using multiqc to review the result of counting
