@@ -1,0 +1,45 @@
+## Create gene expression matrix
+a = read.table('all_id_.txt', header = T, quote="\t", skip=1 )
+meta = a[, 1:6]
+experSet = as.matrix(a[,7:ncol(a)])
+rownames(experSet)= a$Geneid
+
+## Prepare dds, including colData, group_list and experSet
+library(DESeq2)
+library(edgeR)
+library(limma)
+group_list = c('untrt', 'trt','untrt', 'trt','untrt', 'trt','untrt', 'trt')
+colData=data.frame(row.names = colnames(experSet), group_list=group_list)
+# DESeq2 analysis
+dds <- DESeqDataSetFromMatrix(countData = experSet,colData = colData, design = ~ group_list)
+dds <- DESeq(dds)
+res <- results(dds,contrast = c("group_list", "trt","untrt"))
+summary(res)
+# order res by padj
+resOrdered <- res[order(res$padj),]
+DEG = as.data.frame(resOrdered)
+# remove the NA value
+nrDEG=na.omit(DEG)
+# choose specific amount of genes, i.e the top 100 genes
+choose_genes = head(rownames(nrDEG), 100)
+choose_gene_matrix = experSet[choose_genes,]
+
+## Make heatmap
+library(pheatmap)
+choose_gene_matrix = t(scale(t(choose_gene_matrix)))
+pheatmap(choose_gene_matrix, filename='DEG_top100.png')
+
+## Make volcano plot 
+# define the threshold of log2FoldChange
+logFC_cutoff <- with(DEG, mean(abs(log2FoldChange)) + 2*sd(abs(log2FoldChange)))
+DEG$change = as.factor(ifelse(DEG$pvalue < 0.05 & abs(DEG$log2FoldChange) > logFC_cutoff, ifelse(DEG$log2FoldChange>logFC_cutoff,'UP','DOWN'),'NOT'))
+this_title=paste0('Cutoff for logFC is ',round(logFC_cutoff,3), '\nThe number of up gene is ',nrow(DEG[DEG$change=='UP',]), '\nThe number of down gene is ',nrow(DEG[DEG$change=='DOWN',])) 
+library(ggplot2)
+g = ggplot(data=DEG, aes(x=log2FoldChange,y=-log10(pvalue),color=change))+
+  geom_point(alpha=0.4,size=1.75)+
+  theme_set(theme_set(theme_bw(base_size = 20)))+
+  xlab('log2 fold change')+ylab('-log10 p-value')+
+  ggtitle(this_title)+theme(plot.title = element_text(size = 15,hjust = 0.5))+
+  scale_color_manual(values = c('blue','black','red'))
+ggsave(g,filename = 'volcano.png') 
+dev.off()
