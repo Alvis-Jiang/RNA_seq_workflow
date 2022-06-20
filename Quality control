@@ -1,15 +1,20 @@
 #fq files:
-/home/jby/rnaseq/fq/SRR957667_1.fastq.gz
-/home/jby/rnaseq/fq/SRR957668_1.fastq.gz
-/home/jby/rnaseq/fq/SRR958469_1.fastq.gz
-/home/jby/rnaseq/fq/SRR958472_1.fastq.gz
-/home/jby/rnaseq/fq/SRR958473_1.fastq.gz
-/home/jby/rnaseq/fq/SRR958525_1.fastq.gz
-/home/jby/rnaseq/fq/SRR957667_2.fastq.gz
-/home/jby/rnaseq/fq/SRR957668_2.fastq.gz
-/home/jby/rnaseq/fq/SRR958469_2.fastq.gz
-/home/jby/rnaseq/fq/SRR958472_2.fastq.gz
-
+/home/jby/rnaseq/fq/SRR1039508_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039509_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039512_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039513_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039516_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039517_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039520_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039521_1.fastq.gz
+/home/jby/rnaseq/fq/SRR1039508_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039509_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039512_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039513_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039516_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039517_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039520_2.fastq.gz
+/home/jby/rnaseq/fq/SRR1039521_2.fastq.gz
 # Check fq files with fastqc 
 # single file
 fastqc /home/jby/rnaseq/fq/SRR957667_1.fastq.gz
@@ -40,14 +45,22 @@ bash clean.sh
 
 # obtain files
 # /home/jby/rnaseq/clean
-SRR957667_1_val_1.fq.gz
-SRR957667_2_val_2.fq.gz
-SRR957668_1_val_1.fq.gz
-SRR957668_2_val_2.fq.gz
-SRR958469_1_val_1.fq.gz
-SRR958469_2_val_2.fq.gz
-SRR958472_1_val_1.fq.gz
-SRR958472_2_val_2.fq.gz
+SRR1039508_1_val_1.fq.gz
+SRR1039508_2_val_2.fq.gz
+SRR1039509_1_val_1.fq.gz
+SRR1039509_2_val_2.fq.gz
+SRR1039512_1_val_1.fq.gz
+SRR1039512_2_val_2.fq.gz
+SRR1039513_1_val_1.fq.gz
+SRR1039513_2_val_2.fq.gz
+SRR1039516_1_val_1.fq.gz
+SRR1039516_2_val_2.fq.gz
+SRR1039517_1_val_1.fq.gz
+SRR1039517_2_val_2.fq.gz
+SRR1039520_1_val_1.fq.gz
+SRR1039520_2_val_2.fq.gz
+SRR1039521_1_val_1.fq.gz
+SRR1039521_2_val_2.fq.gz
 # Using multiqc to check 
 multiqc ./
 
