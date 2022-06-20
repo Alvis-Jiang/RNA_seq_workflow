@@ -8,8 +8,12 @@ prefecth SRR5908780 -O ./
 """
 SRR1039508
 SRR1039509
-SRR1039510
-SRR1039511
+SRR1039512
+SRR1039513
+SRR1039516
+SRR1039517
+SRR1039520
+SRR1039521
 """
 prefetch --option-file SRR_Acc_List.txt -O ./
 
@@ -27,8 +31,12 @@ ascp -v -k 1 -T -l 400m -i ~/miniconda3/envs/aspera/etc/asperaweb_id_dsa.openssh
 """
 fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/008/SRR1039508
 fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/009/SRR1039509
-fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/000/SRR1039510
-fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/001/SRR1039511
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/000/SRR1039512
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/001/SRR1039513
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/008/SRR1039516
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/008/SRR1039517
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/008/SRR1039520
+fasp.sra.ebi.ac.uk:/vol1/srr/SRR103/008/SRR1039521
 """
 cat files.txt | while read id 
 do 
