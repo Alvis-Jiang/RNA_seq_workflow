@@ -1,10 +1,8 @@
-# Use sar-tools to download 
-
+## Use sar-tools to download data
 # Download single SRR file
 prefecth SRR5908780 -O ./
-
 # Download multiple SRR files 
-#Firstly, download "SRR_Acc_List.txt"
+# Firstly, download "SRR_Acc_List.txt"
 """
 SRR1039508
 SRR1039509
@@ -17,15 +15,12 @@ SRR1039521
 """
 prefetch --option-file SRR_Acc_List.txt -O ./
 
-# Use apsera to download 
-
+## Use apsera to download 
 # Install aspera 
 conda install -c hcc aspera-cli
-
-#Download single SRR file 
+# Download single SRR file 
 # Find the "sra_aspera" on "https://www.ebi.ac.uk/ena/browser/home", i.e fasp.sra.ebi.ac.uk:/vol1/srr/SRR957/SRR957667 
 ascp -v -k 1 -T -l 400m -i ~/miniconda3/envs/aspera/etc/asperaweb_id_dsa.openssh -P33001 era-fasp@fasp.sra.ebi.ac.uk:/vol1/srr/SRR957/SRR957667
-
 # Download multiple SRR files
 # create srr_aspear list file, i.e files.txt 
 """
@@ -44,7 +39,7 @@ ascp -v -k 1 -T -l 400m -i ~/miniconda3/envs/aspera/etc/asperaweb_id_dsa.openssh
 done
 
 # Use fastq-dump to unpack SRR files 
-#--gzip: compress output using gzip
-#--split-3: dump each read (paired-sequence) into seperate files
+# --gzip: compress output using gzip
+# --split-3: dump each read (paired-sequence) into seperate files
 fastq-dump --split-3 --gzip -O ./
 
