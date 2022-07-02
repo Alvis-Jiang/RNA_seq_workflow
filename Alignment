@@ -1,10 +1,10 @@
 # Download the reference genome, i.e hg38.fa.gz
 gunzip hg38.fa.gz
 
-# Using bowtie2 to build index
+## Using bowtie2 for alignment
+# build index
 bowtie2-build hg38.fa hg38
-
-# Using bowtie2 for alignment 
+# alignment 
 ls *_1_val_1.fq.gz | cut -d '_' -f 1 > config
 vim align.sh
 # shell script
@@ -13,13 +13,12 @@ reference='/home/jby/rnaseq/reference/hg38/hg38'
 dir='/home/jby/rnaseq/align'
 cat config |  while read sample
 do
-
 bowtie2 -p 2 -x $reference -1 ${sample}_1_val_1.fq.gz -2 ${sample}_2_val_2.fq.gz -S ${sample}.bowtie.sam
 done
 """
 
-
-# Using hisat2 to build index or download the official index from http://daehwankimlab.github.io/hisat2/download/
+## Using hisat2 for alignment
+# build index or download the official index from http://daehwankimlab.github.io/hisat2/download/
 hisat2-build hg38.fa hg38
 ls *_1_val_1.fq.gz | cut -d '_' -f 1 > config
 vim align.sh 
@@ -32,7 +31,6 @@ do
 hisat2 -p 4 -x $reference -1  ${sample}_1_val_1.fq.gz -2 ${sample}_2_val_2.fq.gz -S ${sample}.sam
 done
 """
-
 # Transforming .bam files to .bam files
 #shell script
 """
