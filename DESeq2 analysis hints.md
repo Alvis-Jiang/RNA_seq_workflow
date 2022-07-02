@@ -1,8 +1,4 @@
-## Prepare the gene expression matrix
-![Image Text](https://github.com/Alvis-Jiang/image_folder/blob/main/choose_gene_matrix.png)
+# RNAseq workflow
+### This is y personal note of RNAseq
+### recommend review "A survey of best practices for RNA-seq data analysis"
 
-## Prepare the colData matrix
-![Image Text](https://github.com/Alvis-Jiang/image_folder/blob/main/colData.png)
-
-## Result of the nrDEG
-![Image Text](https://github.com/Alvis-Jiang/image_folder/blob/main/nrDEG.png)
